@@ -89,14 +89,22 @@ var main = function () {
          * If filled, enable the next button */
         email.keyup(function () {
             var emailRegex = /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm;
-            checkKeyup( email, phone, emailRegex, 'icon-cross-email', 'icon-tick-email' );
+            var phoneRegex = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
+            checkKeyup( email, phone, emailRegex, phoneRegex, 'icon-cross-email', 'icon-tick-email' );
         });
 
         /* When user starts to type in phone number, check if email field is filled
          * If filled, enable the next button */
         phone.keyup(function () {
+            var emailRegex = /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm;
             var phoneRegex = /^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$/gm;
-            checkKeyup( phone, email, phoneRegex, 'icon-cross-phone', 'icon-tick-phone' );
+            checkKeyup( phone, email, phoneRegex, emailRegex, 'icon-cross-phone', 'icon-tick-phone' );
+        });
+
+        $('.upload-wizard-navigation-button-is-disabled').click(function () {
+            if ($('.upload-wizard-section-is-visible').attr('data-step') == 1 && $(this).attr('data-step') == 1 && ( !email.val() || !phone.val() ) ) {
+                $('.mod-alert-modal').text('Please enter your email and phone number first').show().delay(10000).fadeOut();
+            }
         });
     }
 
@@ -104,6 +112,7 @@ var main = function () {
     $('.mod-upload-wizard-navigation-button-next').click(function () {
         if ( $('.upload-wizard-section-is-visible').attr('data-step') == 2 ) {
             if ( !$('#upload-pickup').prop('checked') && !$('#upload-delivery').prop('checked') ) {
+                $('.mod-alert-modal').text('Please select a method of delivery first').show().delay(10000).fadeOut();
                 $('.mod-upload-wizard-navigation-button-next').attr('data-step', '3').addClass('upload-wizard-navigation-button-is-disabled');
             }
         }
@@ -114,8 +123,10 @@ var main = function () {
         if ( !$('#upload-pickup').prop('checked') && !$('#upload-delivery').prop('checked') ) { // if no option selected, disable next button
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else if ( $('#upload-delivery').prop('checked') && !$('#upload-address').val() ) { // if user selects delivery but enters no address, disable next button
+            $('.mod-alert-modal').text('Please enter the address where you would like your printed photos delivered').show().delay(10000).fadeOut();
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else if ( $('#upload-pickup').prop('checked') && !validateStudioRadio() ) {
+            $('.mod-alert-modal').text('Please select the studio where you would like to pick the printed photos from').show().delay(10000).fadeOut();
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else { // enable next button
             $('.mod-upload-wizard-navigation-button-next').removeClass('upload-wizard-navigation-button-is-disabled');
@@ -129,6 +140,13 @@ var main = function () {
         }
     });
 
+    $('.mod-upload-wizard-navigation-button-next').click(function () {
+        if ($('.upload-wizard-section-is-visible').attr('data-step') == 2 && !$('#upload-address').val()  ) {
+            $('.mod-alert-modal').text('Please enter the address where you would like your printed photos delivered').show().delay(10000).fadeOut();
+            $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
+        }
+    });
+
     // Check if a file has been uploaded
     // If uploaded, enable finish button
     var fileInput = document.getElementById('upload-file'),
@@ -138,6 +156,7 @@ var main = function () {
     $('.mod-upload-wizard-navigation-button-finish').click(function () {
         if ( !uploadsLength ) {
             $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled'); // disable finish button
+            $('.mod-alert-modal').text('You must upload at least five images').show().delay(10000).fadeOut();
         } else {
             validateSize( fileInput );
             // show the payment modal after user clicks finish
@@ -153,7 +172,6 @@ var main = function () {
             validateSize( fileInput );
         }
     });
-
 
     var nextButton =  $('.mod-upload-wizard-navigation-button-next'),
         previousButton = $('.mod-upload-wizard-navigation-button-previous'),
@@ -181,6 +199,9 @@ var main = function () {
                 $('.mod-upload-wizard-navigation-button-next').css('display', 'none');
                 $('.mod-upload-wizard-navigation-button-finish').css('display', 'inline-block');
             }
+
+            // hide any alerts
+            $('.mod-alert-modal').hide();
         }
 
         // show previous button from the second step upwards
@@ -211,6 +232,9 @@ var main = function () {
         nextCount = previousCount;
         previousCount -= 1;
 
+        // hide any alerts
+        $('.mod-alert-modal').hide();
+
         // hide previous button on first step
         if (previousCount < 1) {
             previousButton.css('display', 'none');
@@ -237,11 +261,11 @@ var main = function () {
 };
 
 // check the user's input on keyup (for live validation)
-var checkKeyup = function ( field, altField, regexpr, errorIcon, successIcon ) {
+var checkKeyup = function ( field, altField, regexpr, altRegex, errorIcon, successIcon ) {
     if ( field.val() && validateInput( field.val(), regexpr) ) {
         $('.' + errorIcon).css('display', 'none');
         $('.' + successIcon).css('display', 'inline');
-        if ( altField.val() ) {
+        if ( altField.val() && validateInput( altField.val(), altRegex ) ) {
             $('.mod-upload-wizard-navigation-button-next').removeClass('upload-wizard-navigation-button-is-disabled');
         }
     } else {
@@ -296,8 +320,10 @@ var validateSize = function ( inputSelector ) {
             $('.upload-form-explainer').text('This is the total amount charged to you in order to print the ' + fileInputField.get(0).files.length + ' photographs you have uploaded.')
         });
     } else if ( fileInputField.get(0).files.length < 5 ) {
+        $('.mod-alert-modal').text('You must upload at least five images').show().delay(10000).fadeOut();
         $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
     } else {
+        $('.mod-alert-modal').text('At least one of the images you are trying to upload is less than 30KB in size. Please select larger images.').show().delay(10000).fadeOut();
         $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
     }
 };

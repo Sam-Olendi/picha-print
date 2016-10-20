@@ -66,6 +66,13 @@ a:focus {
   padding: 5px;
 }
 
+p.alert.mod-alert-modal {
+  border-radius: 2px 2px 0 0;
+  display: none;
+  font-size: 0.85em;
+  margin-bottom: 0;
+}
+
 /*==================
   Home (Landing Page)
   ==================*/

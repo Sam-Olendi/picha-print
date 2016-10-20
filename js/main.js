@@ -57,12 +57,19 @@ var main = function () {
 
     // Show the delivery address field if the user chooses to have it delivered
     $('#upload-delivery').change(function () {
-        if ( $(this).prop('checked') ) $('.mod-form-group-delivery-address').css('display', 'block');
+        if ( $(this).prop('checked') ) {
+            $('.mod-form-group-delivery-address').css('display', 'block');
+            $('.form-radio-group').css('display', 'none');
+            uncheckRadioButtons();
+        }
     });
 
     // Hide the delivery address field if the user decides to pick it up
     $('#upload-pickup').change(function () {
-        if ( $(this).prop('checked') ) $('.mod-form-group-delivery-address').css('display', 'none');
+        if ( $(this).prop('checked') ) {
+            $('.form-radio-group').css('display', 'block');
+            $('.mod-form-group-delivery-address').css('display', 'none');
+        }
     });
 
     // Disable 'next' button if the first form is not filled
@@ -107,6 +114,8 @@ var main = function () {
         if ( !$('#upload-pickup').prop('checked') && !$('#upload-delivery').prop('checked') ) { // if no option selected, disable next button
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else if ( $('#upload-delivery').prop('checked') && !$('#upload-address').val() ) { // if user selects delivery but enters no address, disable next button
+            $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
+        } else if ( $('#upload-pickup').prop('checked') && !validateStudioRadio() ) {
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else { // enable next button
             $('.mod-upload-wizard-navigation-button-next').removeClass('upload-wizard-navigation-button-is-disabled');
@@ -247,6 +256,25 @@ var validateInput = function ( value, regexpression ) {
     return regexpression.test(value);
 };
 
+var validateStudioRadio = function () {
+    var studioOptions = $('.mod-form-radio-studio'),
+        isChecked = 0;
+
+    for ( var s = 0; s < studioOptions.length; s++ ) {
+        if ( $(studioOptions[s]).prop('checked') ) isChecked = 1;
+    }
+
+    return isChecked;
+};
+
+var uncheckRadioButtons = function () {
+    var studioOptions = $('.mod-form-radio-studio');
+
+    for ( var u = 0; u < studioOptions.length; u++ ) {
+        $(studioOptions[u]).prop('checked', false);
+    }
+};
+
 // check size of image uploaded
 // should not be less than 30KB
 var validateSize = function ( inputSelector ) {
@@ -264,6 +292,8 @@ var validateSize = function ( inputSelector ) {
         $('.js-trigger-picha-modal-payment').click(function () {
             $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
             $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
+            $('.picha-modal-body-payment-amount').html('<b>Total: </b>Kshs. ' + (fileInputField.get(0).files.length * 99) );
+            $('.upload-form-explainer').text('This is the total amount charged to you in order to print the ' + fileInputField.get(0).files.length + ' photographs you have uploaded.')
         });
     } else if ( fileInputField.get(0).files.length < 5 ) {
         $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');

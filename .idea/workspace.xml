@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bb2b1621-44dd-4dff-8b6f-abeceb28d6d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <ignored path="pichaprint.iws" />
@@ -27,15 +29,13 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.153846">
-              <caret line="108" column="41" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+            <state vertical-scroll-proportion="-11.576923">
+              <caret line="99" column="103" selection-start-line="99" selection-start-column="82" selection-end-line="99" selection-end-column="103" />
               <folding>
                 <element signature="n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#section#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#section#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#section#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,12 +44,26 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5584416">
-              <caret line="257" column="5" selection-start-line="257" selection-start-column="5" selection-end-line="257" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.39285713">
+              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
               <folding>
-                <element signature="e#7119#8600#0" expanded="false" />
-                <element signature="e#8693#10298#0" expanded="false" />
+                <element signature="e#3002#4203#0" expanded="false" />
+                <element signature="e#4363#4716#0" expanded="false" />
+                <element signature="e#7523#9004#0" expanded="false" />
+                <element signature="e#9097#10702#0" expanded="false" />
+                <element signature="e#12520#13848#0" expanded="false" />
+                <marker date="1477000122922" expanded="true" signature="2571:2808" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.807692">
+              <caret line="749" column="43" selection-start-line="749" selection-start-column="12" selection-end-line="749" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,6 +77,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
@@ -162,7 +177,13 @@
       <option name="project" value="LOCAL" />
       <updated>1476995588984</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Set file upload minimum to 5 photographs">
+      <created>1476996156938</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1476996156938</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -211,35 +232,46 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Set minimum upload size to 30KB and add resolution disclaimer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set minimum upload size to 30KB and add resolution disclaimer" />
+    <MESSAGE value="Set file upload minimum to 5 photographs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set file upload minimum to 5 photographs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.807692">
+          <caret line="749" column="43" selection-start-line="749" selection-start-column="12" selection-end-line="749" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.153846">
-          <caret line="108" column="41" selection-start-line="108" selection-start-column="41" selection-end-line="108" selection-end-column="41" />
+        <state vertical-scroll-proportion="-11.576923">
+          <caret line="99" column="103" selection-start-line="99" selection-start-column="82" selection-end-line="99" selection-end-column="103" />
           <folding>
             <element signature="n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#section#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#section#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#section#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5584416">
-          <caret line="257" column="5" selection-start-line="257" selection-start-column="5" selection-end-line="257" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.39285713">
+          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
           <folding>
-            <element signature="e#7119#8600#0" expanded="false" />
-            <element signature="e#8693#10298#0" expanded="false" />
+            <element signature="e#3002#4203#0" expanded="false" />
+            <element signature="e#4363#4716#0" expanded="false" />
+            <element signature="e#7523#9004#0" expanded="false" />
+            <element signature="e#9097#10702#0" expanded="false" />
+            <element signature="e#12520#13848#0" expanded="false" />
+            <marker date="1477000122922" expanded="true" signature="2571:2808" placeholder="..." />
           </folding>
         </state>
       </provider>

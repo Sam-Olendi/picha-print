@@ -120,11 +120,17 @@ var main = function () {
         }
     });
 
+    // Check if a file has been uploaded
+    // If uploaded, enable finish button
+    var fileInput = document.getElementById('upload-file'),
+        uploadsLength = $('#upload-file').get(0).files.length;
+
     // Disable 'next' button if the third form (upload pictures) is not filled
     $('.mod-upload-wizard-navigation-button-finish').click(function () {
-        if ( !$('#upload-file').get(0).files.length ) {
+        if ( !uploadsLength ) {
             $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled'); // disable finish button
         } else {
+            validateSize( fileInput );
             // show the payment modal after user clicks finish
             $('.js-trigger-picha-modal-payment').click(function () {
                 $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
@@ -133,17 +139,9 @@ var main = function () {
         }
     });
 
-    // Check if a file has been uploaded
-    // If uploaded, enable finish button
-    $('#upload-file').change(function () {
+    $(fileInput).change(function () {
         if ( $('#upload-file').get(0).files.length ) {
-            $('.mod-upload-wizard-navigation-button-finish').removeClass('upload-wizard-navigation-button-is-disabled'); // enable finish button
-
-            // show the payment modal after user clicks finish
-            $('.js-trigger-picha-modal-payment').click(function () {
-                $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
-                $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
-            });
+            validateSize( fileInput );
         }
     });
 
@@ -247,6 +245,28 @@ var checkKeyup = function ( field, altField, regexpr, errorIcon, successIcon ) {
 // validate input
 var validateInput = function ( value, regexpression ) {
     return regexpression.test(value);
+};
+
+// check size of image uploaded
+// should not be less than 30KB
+var validateSize = function ( inputSelector ) {
+    var tooSmall = 0;
+
+    for ( var i = 0; i < $('#upload-file').get(0).files.length; i++ ) {
+        if ( inputSelector.files[i].size < 30000 ) tooSmall = 1;
+    }
+
+    if ( !tooSmall ) {
+        $('.mod-upload-wizard-navigation-button-finish').removeClass('upload-wizard-navigation-button-is-disabled'); // enable finish button
+
+        // show the payment modal after user clicks finish
+        $('.js-trigger-picha-modal-payment').click(function () {
+            $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
+            $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
+        });
+    } else {
+        $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
+    }
 };
 
 $(document).ready(main);

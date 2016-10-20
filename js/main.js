@@ -250,13 +250,14 @@ var validateInput = function ( value, regexpression ) {
 // check size of image uploaded
 // should not be less than 30KB
 var validateSize = function ( inputSelector ) {
-    var tooSmall = 0;
+    var tooSmall = 0,
+        fileInputField = $('#upload-file');
 
-    for ( var i = 0; i < $('#upload-file').get(0).files.length; i++ ) {
+    for ( var i = 0; i < fileInputField.get(0).files.length; i++ ) {
         if ( inputSelector.files[i].size < 30000 ) tooSmall = 1;
     }
 
-    if ( !tooSmall ) {
+    if ( !tooSmall && fileInputField.get(0).files.length >= 5 ) {
         $('.mod-upload-wizard-navigation-button-finish').removeClass('upload-wizard-navigation-button-is-disabled'); // enable finish button
 
         // show the payment modal after user clicks finish
@@ -264,6 +265,8 @@ var validateSize = function ( inputSelector ) {
             $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
             $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
         });
+    } else if ( fileInputField.get(0).files.length < 5 ) {
+        $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
     } else {
         $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
     }

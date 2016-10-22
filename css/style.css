@@ -78,12 +78,19 @@ p.alert.mod-alert-modal {
   ==================*/
 
 .jumbotron.mod-jumbotron-home {
-  /*background-image: url('../img/background-1.jpg');*/
+  background-image: url('../img/bg.png');
+  background-position: center;
   background-size: cover;
   height: 100vh;
   margin-bottom: 0;
   position: relative;
   text-align: center;
+}
+
+@media screen and (min-width: 46em) {
+  .jumbotron.mod-jumbotron-home {
+    background-position: initial;
+  }
 }
 
 .home-text {
@@ -95,7 +102,7 @@ p.alert.mod-alert-modal {
 
 @media screen and (min-width: 35.5em) {
   .home-text {
-    bottom: 60px;
+    bottom: 30px;
     width: 100%;
   }
 }
@@ -109,7 +116,7 @@ p.alert.mod-alert-modal {
 .home-text .home-text-subtitle {
   font-size: 1.15em;
   line-height: 24px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .btn.mod-btn-call-to-action {

@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Upload Your Photograph</title>
-        <meta name="description" content="">
+        <title>pichaprint - Make Your Memories Last Forever</title>
+        <meta name="description" content="With pichaprint.com, get your best memories printed and delivered to your home">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,7 +16,8 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Damion|Roboto:400,400i,900" rel="stylesheet">
+
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -27,10 +28,10 @@
         <section class="jumbotron mod-jumbotron-home">
 
             <div class="home-text">
-                <h1 class="home-text-heading">Your memories are beautiful. Make them permanent.</h1>
-                <p class="home-text-subtitle">We print your digital photographs and deliver them right to your doorstep.</p>
-                <a href="#" class="btn btn-success mod-btn-call-to-action js-trigger-picha-modal-sizes" data-toggle="modal" data-target="#upload" data-backdrop="true">Upload photograph</a>
-                <small class="home-text-disclaimer">*We are currently based in Nairobi</small>
+                <h1 class="home-text-heading">Make your memories last forever</h1>
+                <p class="home-text-subtitle">With pichaprint.com, get your best memories printed and delivered to your home.</p>
+                <a href="javascript:void(0)" class="btn btn-success mod-btn-call-to-action js-trigger-picha-modal-sizes" data-toggle="modal" data-target="#upload" data-backdrop="true">Place order</a>
+                <small class="home-text-disclaimer">Only 99 KES / unit</small>
             </div>
 
             <div class="picha-modal mod-picha-modal-sizes">
@@ -124,19 +125,24 @@
                                     <div class="form-group">
                                         <input type="radio" class="form-radio mod-form-radio-delivery" name="delivery" value="delivery" id="upload-delivery">
                                         <label for="upload-delivery" class="upload-label mod-upload-label-radio">Home or work delivery</label>
+                                        <small class="upload-wizard-section-subtitle">Delivery costs 200/=</small>
                                     </div>
                                     <div class="form-group mod-form-group-delivery-address">
-                                        <textarea placeholder="Your physical address" id="upload-address" rows="5" class="form-control"></textarea>
+                                        <small class="upload-wizard-section-subtitle">Please enter your neighbourhood, house number and/or environs</small>
+                                        <textarea placeholder="e.g. House 12, Hinga Road, Mountain View, Westlands. Off Waiyaki Way." id="upload-address" rows="5" class="form-control"></textarea>
+
                                     </div>
+                                    <label for="upload-comments" class="upload-label">Additional comments:</label>
+                                    <textarea placeholder="Any additional comments" id="upload-comments" rows="5" class="form-control"></textarea>
                                 </section>
                                 <section class="upload-wizard-section mod-upload-wizard-section-upload" data-step="3">
-                                    <h2 class="upload-wizard-section-title">Upload photographs</h2>
-                                    <small class="upload-wizard-section-subtitle">You must upload a minimum of 5 photographs</small>
+                                    <h2 class="upload-wizard-section-title">Select photographs</h2>
+                                    <small class="upload-wizard-section-subtitle">You must upload a minimum of 3 photographs</small>
                                     <div>
-                                        <input type="file" name="file" id="upload-file" class="form-control mod-form-control-upload" data-multiple-caption="{count} files selected" multiple>
+                                        <input type="file" name="file" id="upload-file" class="form-control mod-form-control-upload" data-multiple-caption="{count} files selected" multiple="multiple" accept="image/*">
                                         <label for="upload-file" class="upload-label mod-upload-label-upload"><i class="icon-image"></i>Select your photographs</label>
+                                        <small class="upload-form-explainer">Please note that the printed pictures will reflect the quality of the original picture. Make sure you choose pictures which don't seem blurry on your screen!</small>
                                         <small class="upload-form-explainer">The minimum file size is 30KB.</small>
-                                        <small class="upload-form-explainer">Please make sure that you upload photos of good quality. If they look blurry on your screen, they will look blurry when printed out.</small>
                                     </div>
                                 </section>
 
@@ -157,7 +163,7 @@
 
                             <div class="picha-modal-footer-upload-right">
                                 <a href="javascript:void(0)" data-step="1" class="upload-wizard-navigation-button mod-upload-wizard-navigation-button-next">Next <i class="icon-arrow-right"></i></a>
-                                <a href="javascript:void(0)" data-step="3" class="upload-wizard-navigation-button mod-upload-wizard-navigation-button-finish js-trigger-picha-modal-payment">Finish</a>
+                                <a href="javascript:void(0)" data-step="3" class="btn btn-success upload-wizard-navigation-button mod-upload-wizard-navigation-button-finish js-trigger-picha-modal-payment">Finish</a>
                             </div>
 
                         </footer>
@@ -193,11 +199,10 @@
                         <header class="picha-modal-header mod-picha-modal-header-congrats">
                             <a href="javascript:void(0)" class="picha-modal-close js-trigger-picha-modal-congrats-close"><i class="icon-cross"></i></a>
                             <h2 class="picha-modal-title">A toast to you!</h2>
-                            <small class="picha-modal-subtitle">Thank you for using Picha</small>
+                            <small class="picha-modal-subtitle">Thank you for using pichaprint.com</small>
                         </header>
                         <div class="picha-modal-body mod-picha-modal-body-congrats">
-                            <img src="img/cool-guy.svg" alt="A toast to you! Thank you for using Picha" class="picha-modal-congrats-image">
-                            <p class="picha-modal-body-congrats-text">Thank you for using PichaPrint. We shall send you a confirmation as soon as we receive your payment.</p>
+                            <p class="picha-modal-body-congrats-text">Thank you for your order, as soon as we receive your payment, we will print your pictures. You will receive them within 4 business days.</p>
                         </div>
                         <div class="picha-modal-footer mod-picha-modal-footer-congrats">
                             <a href="javascript:void(0)" class="btn btn-success mod-btn-picha-modal js-trigger-picha-modal-congrats-close">Done</a>

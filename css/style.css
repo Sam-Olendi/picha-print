@@ -18,7 +18,7 @@ html * {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
@@ -67,18 +67,36 @@ a:focus {
 }
 
 p.alert.mod-alert-modal {
+  color: #ffffff;
+  background-color: #ca3330;
   border-radius: 2px 2px 0 0;
   display: none;
   font-size: 0.85em;
   margin-bottom: 0;
 }
 
+.btn.btn-success {
+  background-color: #BF0603;
+  border: 0;
+  font-size: 0.9em;
+  padding: 10px 25px;
+}
+
+.btn.mod-btn-call-to-action {
+  border-radius: 30px;
+  display: block;
+  font-size: 1em;
+  margin: 0 auto;
+  width: 200px;
+}
+
+
 /*==================
   Home (Landing Page)
   ==================*/
 
 .jumbotron.mod-jumbotron-home {
-  background-image: url('../img/bg.png');
+  background-image: url('../img/pichaprint-background.jpg');
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -94,36 +112,40 @@ p.alert.mod-alert-modal {
 }
 
 .home-text {
-  bottom: 100px;
+  background-color: rgba(235,235,235,.3);
+  bottom: 20px;
   margin: 0 auto;
+  padding: 5px 10px;
   position: absolute;
   width: 90%;
 }
 
 @media screen and (min-width: 35.5em) {
   .home-text {
-    bottom: 30px;
+    background-color: transparent;
     width: 100%;
   }
 }
 
 .home-text .home-text-heading {
-  font-size: 2em;
+  /*color: #ffffff;*/
+  font-family: 'Pacifico', 'Comic Sans MS', cursive;
+  font-size: 3em;
   font-weight: 900;
   line-height: 1.3em;
 }
 
-.home-text .home-text-subtitle {
-  font-size: 1.15em;
-  line-height: 24px;
-  margin-bottom: 20px;
+@media screen and (min-width: 35.5em) {
+  .home-text .home-text-heading {
+    color: inherit;
+    font-size: 4em;
+  }
 }
 
-.btn.mod-btn-call-to-action {
-  border-radius: 30px;
-  display: block;
-  margin: 0 auto;
-  width: 200px;
+.home-text .home-text-subtitle {
+  font-size: 1em;
+  line-height: 24px;
+  margin-bottom: 20px;
 }
 
 .home-text-disclaimer {
@@ -665,15 +687,13 @@ p.picha-modal-body-sizes-text {
   width: 10px;
 }
 
-.upload-wizard-sections-navigation:hover,
-.upload-wizard-sections-navigation:active,
 .upload-wizard-sections-navigation:focus {
-  background-color: #03A9F4;
+  background-color: #4B88A2;
   text-decoration: none;
 }
 
 .upload-wizard-sections-navigation.upload-wizard-sections-navigation-is-active {
-  background-color: #03A9F4;
+  background-color: #4B88A2;
   border: none;
 }
 
@@ -785,14 +805,12 @@ p.picha-modal-body-sizes-text {
 }
 
 .upload-wizard-navigation-button.mod-upload-wizard-navigation-button-next {
-  background-color: #398ccf;
+  background-color: #4B88A2;
   clear: both;
   color: #ffffff;
 }
 
 .upload-wizard-navigation-button.mod-upload-wizard-navigation-button-finish {
-  background-color: #5db85d;
-  color: #ffffff;
   display: none;
 }
 
@@ -845,6 +863,7 @@ p.picha-modal-body-sizes-text {
   display: block;
   font-size: 0.85em;
   font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .upload-label.mod-upload-label-radio {

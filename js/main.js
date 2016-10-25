@@ -69,6 +69,7 @@ var main = function () {
         if ( $(this).prop('checked') ) {
             $('.form-radio-group').css('display', 'block');
             $('.mod-form-group-delivery-address').css('display', 'none');
+            $('#upload-address').val('');
         }
     });
 
@@ -119,7 +120,8 @@ var main = function () {
     });
 
     // Disable 'next' button if the second form (delivery) is not filled
-    $('.mod-upload-wizard-section-address').click(function () {
+    $('.mod-upload-wizard-section-address').click(function (event) {
+        console.log($('.form-radio'));
         if ( !$('#upload-pickup').prop('checked') && !$('#upload-delivery').prop('checked') ) { // if no option selected, disable next button
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else if ( $('#upload-delivery').prop('checked') && !$('#upload-address').val() ) { // if user selects delivery but enters no address, disable next button
@@ -140,23 +142,15 @@ var main = function () {
         }
     });
 
-    $('.mod-upload-wizard-navigation-button-next').click(function () {
-        if ($('.upload-wizard-section-is-visible').attr('data-step') == 2 && !$('#upload-address').val()  ) {
-            $('.mod-alert-modal').text('Please enter the address where you would like your printed photos delivered').show().delay(10000).fadeOut();
-            $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
-        }
-    });
-
     // Check if a file has been uploaded
     // If uploaded, enable finish button
-    var fileInput = document.getElementById('upload-file'),
-        uploadsLength = $('#upload-file').get(0).files.length;
+    var fileInput = document.getElementById('upload-file');
 
     // Disable 'next' button if the third form (upload pictures) is not filled
     $('.mod-upload-wizard-navigation-button-finish').click(function () {
-        if ( !uploadsLength ) {
+        if ( !$('#upload-file').get(0).files.length ) {
             $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled'); // disable finish button
-            $('.mod-alert-modal').text('You must upload at least five images').show().delay(10000).fadeOut();
+            $('.mod-alert-modal').text('You must upload at least three images').show().delay(10000).fadeOut();
         } else {
             validateSize( fileInput );
             // show the payment modal after user clicks finish
@@ -309,18 +303,30 @@ var validateSize = function ( inputSelector ) {
         if ( inputSelector.files[i].size < 30000 ) tooSmall = 1;
     }
 
-    if ( !tooSmall && fileInputField.get(0).files.length >= 5 ) {
+    if ( !tooSmall && fileInputField.get(0).files.length >= 3 ) {
         $('.mod-upload-wizard-navigation-button-finish').removeClass('upload-wizard-navigation-button-is-disabled'); // enable finish button
 
         // show the payment modal after user clicks finish
         $('.js-trigger-picha-modal-payment').click(function () {
             $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
             $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
-            $('.picha-modal-body-payment-amount').html('<b>Total: </b>Kshs. ' + (fileInputField.get(0).files.length * 99) );
+            if ( fileInputField.get(0).files.length >= 10 ) {
+                if ( $('#upload-delivery').prop('checked') ) {    
+                    $('.picha-modal-body-payment-amount').html('<b>Total: </b>Kshs. ' + ((fileInputField.get(0).files.length * 90) + 200) );
+                } else {
+                    $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + (fileInputField.get(0).files.length * 90) );
+                }
+            } else {
+                if ( $('#upload-delivery').prop('checked') ) {    
+                    $('.picha-modal-body-payment-amount').html('<b>Total: </b>Kshs. ' + ((fileInputField.get(0).files.length * 99) + 200) );
+                } else {
+                    $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + (fileInputField.get(0).files.length * 99) );
+                }
+            }
             $('.upload-form-explainer').text('This is the total amount charged to you in order to print the ' + fileInputField.get(0).files.length + ' photographs you have uploaded.')
         });
-    } else if ( fileInputField.get(0).files.length < 5 ) {
-        $('.mod-alert-modal').text('You must upload at least five images').show().delay(10000).fadeOut();
+    } else if ( fileInputField.get(0).files.length < 3 ) {
+        $('.mod-alert-modal').text('You must upload at least three images').show().delay(10000).fadeOut();
         $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
     } else {
         $('.mod-alert-modal').text('At least one of the images you are trying to upload is less than 30KB in size. Please select larger images.').show().delay(10000).fadeOut();

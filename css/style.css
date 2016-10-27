@@ -18,7 +18,7 @@ html * {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 
@@ -64,6 +64,10 @@ a:focus {
   font-weight: 900;
   margin-top: 5px;
   padding: 5px;
+}
+
+p.alert {
+  font-size: 0.85em;
 }
 
 p.alert.mod-alert-modal {
@@ -128,8 +132,7 @@ p.alert.mod-alert-modal {
 }
 
 .home-text .home-text-heading {
-  /*color: #ffffff;*/
-  font-family: 'Pacifico', 'Comic Sans MS', cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 3em;
   font-weight: 900;
   line-height: 1.3em;
@@ -138,7 +141,7 @@ p.alert.mod-alert-modal {
 @media screen and (min-width: 35.5em) {
   .home-text .home-text-heading {
     color: inherit;
-    font-size: 4em;
+    font-size: 3.5em;
   }
 }
 
@@ -780,9 +783,32 @@ p.picha-modal-body-sizes-text {
   margin-bottom: 15px;
 }
 
-/*.form-group.mod-form-group-studios,*/
 .form-group.mod-form-group-delivery-address {
   display: none;
+}
+
+.upload-files-indicator {
+  font-size: 1.02em;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  margin: 5px 0;
+}
+
+.upload-files-count {
+  list-style-type: none;
+  margin: 20px 0;
+  padding-left: 15px;
+}
+
+.upload-files-count-image {
+  color: #888;
+  font-size: 0.9em;
+  margin: 10px 0 5px;
+}
+
+.upload-form-disclaimer {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
 }
 
 .upload-wizard-navigation-right {
@@ -842,8 +868,9 @@ p.picha-modal-body-sizes-text {
   display: flex;
   font-size: 1em;
   font-weight: 400;
-  height: 130px;
+  height: 30px;
   justify-content: center;
+  margin-bottom: 20px;
   padding: 20px;
   text-align: center;
   width: 100%;

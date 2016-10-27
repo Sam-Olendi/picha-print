@@ -36,24 +36,24 @@ var main = function () {
 
     // Change the value of the label when the user selects the files to upload
     // e.g. '3 files selected'
-    var inputs = document.querySelectorAll('.mod-form-control-upload');
-    Array.prototype.forEach.call( inputs, function (input) {
-        var label = input.nextElementSibling;
-
-        input.addEventListener( 'change', function (event) {
-            var filename = '';
-
-            if ( this.files && this.files.length > 1 ) {
-                filename = this.files.length + ' files selected';
-            } else {
-                filename = event.target.value.split('\\').pop();
-            }
-
-            if ( filename ) {
-                document.querySelector('.mod-upload-label-upload').innerHTML = filename;
-            }
-        } );
-    } );
+    //var inputs = document.querySelectorAll('.mod-form-control-upload');
+    //Array.prototype.forEach.call( inputs, function (input) {
+    //    var label = input.nextElementSibling;
+    //
+    //    input.addEventListener( 'change', function (event) {
+    //        var filename = '';
+    //
+    //        if ( this.files && this.files.length > 1 ) {
+    //            filename = this.files.length + ' files selected';
+    //        } else {
+    //            filename = event.target.value.split('\\').pop();
+    //        }
+    //
+    //        if ( filename ) {
+    //            document.querySelector('.mod-upload-label-upload').innerHTML = filename;
+    //        }
+    //    } );
+    //} );
 
     // Show the delivery address field if the user chooses to have it delivered
     $('#upload-delivery').change(function () {
@@ -121,7 +121,6 @@ var main = function () {
 
     // Disable 'next' button if the second form (delivery) is not filled
     $('.mod-upload-wizard-section-address').click(function (event) {
-        console.log($('.form-radio'));
         if ( !$('#upload-pickup').prop('checked') && !$('#upload-delivery').prop('checked') ) { // if no option selected, disable next button
             $('.mod-upload-wizard-navigation-button-next').addClass('upload-wizard-navigation-button-is-disabled');
         } else if ( $('#upload-delivery').prop('checked') && !$('#upload-address').val() ) { // if user selects delivery but enters no address, disable next button
@@ -142,30 +141,72 @@ var main = function () {
         }
     });
 
+
+    var uploadCount, inputCount;
+
+    $('.upload-file-group').on('change', '.mod-form-control-upload', function (event) {
+        uploadCount = $(this).attr('data-file');
+
+        if ( this.files[0].size > 30000 ) {
+            $('#upload-file-input-' + uploadCount).hide();
+
+            $('.upload-files-count').prepend('<li class="upload-files-count-image">' + $('#upload-file-' + uploadCount).val().split('\\').pop() + '</li>').fadeIn(); // show the file they've uploaded
+
+            inputCount = parseInt(uploadCount) + 1;
+            $('.upload-files-indicator').text( inputCount + ' photograph(s) added');
+
+            $('.upload-file-group').append('<div class="upload-file-input" id="upload-file-input-'+ inputCount + '"></div>');
+            $('#upload-file-input-' + inputCount).append('<input type="file" id="upload-file-'+ inputCount + '" class="form-control mod-form-control-upload" data-file="'+ inputCount + '" accept="image/*">');
+            $('#upload-file-input-' + inputCount).append('<label for="upload-file-'+ inputCount + '" class="upload-label mod-upload-label-upload"><i class="icon-image"></i> Select another photograph</label>');
+
+            if ( inputCount < 3 ) {
+                // disable finish button if less than three images
+                enableButton( false, 'mod-upload-wizard-navigation-button-finish', 'upload-wizard-navigation-button-is-disabled' );
+            } else {
+                enableButton( true, 'mod-upload-wizard-navigation-button-finish', 'upload-wizard-navigation-button-is-disabled' );
+            }
+        } else  {
+            $('.mod-alert-modal').text('The image you have tried to upload is less than 30KB in size. Please select a larger image.').show().delay(10000).fadeOut();
+            document.getElementById('upload-file-input-' + uploadCount).value = '';
+        }
+
+
+
+    });
+
     // Check if a file has been uploaded
     // If uploaded, enable finish button
     var fileInput = document.getElementById('upload-file');
 
     // Disable 'next' button if the third form (upload pictures) is not filled
     $('.mod-upload-wizard-navigation-button-finish').click(function () {
-        if ( !$('#upload-file').get(0).files.length ) {
-            $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled'); // disable finish button
+
+        if ( inputCount < 3 ) {
             $('.mod-alert-modal').text('You must upload at least three images').show().delay(10000).fadeOut();
+            enableButton( false, 'mod-upload-wizard-navigation-button-finish', 'upload-wizard-navigation-button-is-disabled' ); // disable finish button
         } else {
-            validateSize( fileInput );
-            // show the payment modal after user clicks finish
-            $('.js-trigger-picha-modal-payment').click(function () {
-                $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
-                $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
-            });
+            // loop through each input
+
         }
+
+        //if ( !$('#upload-file').get(0).files.length ) {
+        //    $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled'); // disable finish button
+        //    $('.mod-alert-modal').text('You must upload at least three images').show().delay(10000).fadeOut();
+        //} else {
+        //    validateSize( fileInput );
+        //    // show the payment modal after user clicks finish
+        //    $('.js-trigger-picha-modal-payment').click(function () {
+        //        $('.mod-picha-modal-upload').removeClass('picha-modal-is-visible');
+        //        $('.mod-picha-modal-payment').addClass('picha-modal-is-visible');
+        //    });
+        //}
     });
 
-    $(fileInput).change(function () {
-        if ( $('#upload-file').get(0).files.length ) {
-            validateSize( fileInput );
-        }
-    });
+    //$(fileInput).change(function () {
+    //    if ( $('#upload-file').get(0).files.length ) {
+    //        validateSize( fileInput );
+    //    }
+    //});
 
     var nextButton =  $('.mod-upload-wizard-navigation-button-next'),
         previousButton = $('.mod-upload-wizard-navigation-button-previous'),
@@ -331,6 +372,15 @@ var validateSize = function ( inputSelector ) {
     } else {
         $('.mod-alert-modal').text('At least one of the images you are trying to upload is less than 30KB in size. Please select larger images.').show().delay(10000).fadeOut();
         $('.mod-upload-wizard-navigation-button-finish').addClass('upload-wizard-navigation-button-is-disabled');
+    }
+};
+
+var enableButton = function ( state, buttonClass, enablingClass ) {
+
+    if ( state ) {
+        $('.' + buttonClass).removeClass(enablingClass);
+    } else {
+        $('.' + buttonClass).addClass(enablingClass);
     }
 };
 

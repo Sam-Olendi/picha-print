@@ -16,7 +16,7 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Damion|Roboto:400,400i,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto:400,400i,900" rel="stylesheet">
 
     </head>
     <body>
@@ -95,6 +95,7 @@
                                     <div class="form-group">
                                         <input type="radio" class="form-radio mod-form-radio-pickup" name="delivery" value="pickup" id="upload-pickup">
                                         <label for="upload-pickup" class="upload-label mod-upload-label-radio">Pick up at studio</label>
+                                        <small class="upload-wizard-section-subtitle">Free! No additional costs.</small>
                                     </div>
                                     <div class="form-radio-group">
                                         <div class="form-group">
@@ -138,12 +139,22 @@
                                 <section class="upload-wizard-section mod-upload-wizard-section-upload" data-step="3">
                                     <h2 class="upload-wizard-section-title">Select photographs</h2>
                                     <small class="upload-wizard-section-subtitle">You must upload a minimum of 3 photographs</small>
-                                    <div>
-                                        <input type="file" name="file" id="upload-file" class="form-control mod-form-control-upload" data-multiple-caption="{count} files selected" multiple="multiple" accept="image/*">
-                                        <label for="upload-file" class="upload-label mod-upload-label-upload"><i class="icon-image"></i>Select your photographs</label>
+
+                                    <div class="upload-file-group">
+                                        <div class="upload-file-input" id="upload-file-input-0" data-group="0">
+                                            <input type="file" id="upload-file-0" class="form-control mod-form-control-upload" data-file="0" data-multiple-caption="{count} files selected" accept="image/*">
+                                            <label for="upload-file-0" class="upload-label mod-upload-label-upload"><i class="icon-image"></i> Select a photograph</label>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="upload-files-indicator">You have not yet selected a photograph.</h3>
+                                    <ul class="upload-files-count"></ul>
+
+                                    <div class="upload-form-disclaimer">
                                         <small class="upload-form-explainer">Please note that the printed pictures will reflect the quality of the original picture. Make sure you choose pictures which don't seem blurry on your screen!</small>
                                         <small class="upload-form-explainer">The minimum file size is 30KB.</small>
                                     </div>
+
                                 </section>
 
                             </div>

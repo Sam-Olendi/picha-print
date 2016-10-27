@@ -135,20 +135,24 @@ var main = function () {
         }
     });
 
-    //
+    // handle file inputs
     var uploadCount, inputCount = 0;
 
     $('.upload-file-group').on('change', '.mod-form-control-upload', function (event) {
-        uploadCount = $(this).attr('data-file');
+        uploadCount = $(this).attr('data-file'); // get the number of the file input (order)
 
+        // if greater than 30KB
         if ( this.files[0].size >= 30000 ) {
-            $('#upload-file-input-' + uploadCount).hide();
+            $('#upload-file-input-' + uploadCount).hide(); // hide the current input
 
+            // add latest upload filename to the list of uploaded photographs
             $('.upload-files-count').prepend('<li class="upload-files-count-image">' + $('#upload-file-' + uploadCount).val().split('\\').pop() + '</li>').fadeIn(); // show the file they've uploaded
 
+            // increase the input counter (tracks the number of images uploaded)
             inputCount = parseInt(uploadCount) + 1;
-            $('.upload-files-indicator').text( inputCount + ' photograph(s) added');
+            $('.upload-files-indicator').text( inputCount + ' photograph(s) added'); // show number of photos uploaded
 
+            // add a new file input field (the one which the user just used to upload is hidden and replaced by this)
             $('.upload-file-group').append('<div class="upload-file-input" id="upload-file-input-'+ inputCount + '"></div>');
             $('#upload-file-input-' + inputCount).append('<input type="file" id="upload-file-'+ inputCount + '" class="form-control mod-form-control-upload" data-file="'+ inputCount + '" accept="image/*">');
             $('#upload-file-input-' + inputCount).append('<label for="upload-file-'+ inputCount + '" class="upload-label mod-upload-label-upload"><i class="icon-image"></i> Select another photograph</label>');
@@ -160,8 +164,9 @@ var main = function () {
                 enableButton( true, 'mod-upload-wizard-navigation-button-finish', 'upload-wizard-navigation-button-is-disabled' );
             }
         } else  {
+            // the file is less than 30KB in size so alert the user
             $('.mod-alert-modal').text('The image you have tried to upload is less than 30KB in size. Please select a larger image.').show().delay(10000).fadeOut();
-            document.getElementById('upload-file-input-' + uploadCount).value = '';
+            document.getElementById('upload-file-input-' + uploadCount).value = ''; // and reject the upload
         }
 
     });

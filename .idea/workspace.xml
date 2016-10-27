@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bb2b1621-44dd-4dff-8b6f-abeceb28d6d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <ignored path="pichaprint.iws" />
@@ -38,8 +37,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.3116884">
-              <caret line="90" column="114" selection-start-line="90" selection-start-column="114" selection-end-line="90" selection-end-column="114" />
+            <state vertical-scroll-proportion="-0.18831168">
+              <caret line="168" column="108" selection-start-line="168" selection-start-column="108" selection-end-line="168" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -212,7 +211,13 @@
       <option name="project" value="LOCAL" />
       <updated>1477535518819</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Validate the user's data">
+      <created>1477542068347</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1477542068347</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -275,7 +280,8 @@
     <MESSAGE value="Add the background image" />
     <MESSAGE value="Update the fonts" />
     <MESSAGE value="Change the file upload design pattern" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the file upload design pattern" />
+    <MESSAGE value="Validate the user's data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validate the user's data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -390,8 +396,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3116884">
-          <caret line="90" column="114" selection-start-line="90" selection-start-column="114" selection-end-line="90" selection-end-column="114" />
+        <state vertical-scroll-proportion="-0.18831168">
+          <caret line="168" column="108" selection-start-line="168" selection-start-column="108" selection-end-line="168" selection-end-column="108" />
           <folding />
         </state>
       </provider>

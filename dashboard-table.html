@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,900" rel="stylesheet">
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<header class="dashboard-header">
+    <div class="container">
+        <div class="dashboard-header-brand">
+            <a href="dashboard.html" class="dashboard-header-logo">Picha</a>
+            <p class="dashboard-header-subtitle">Dashboard: Your orders</p>
+        </div>
+        <div class="dashboard-header-actions pull-right">
+            <div class="dashboard-header-search">
+                <i class="icon-search"></i>
+                <input type="search" class="form-control mod-form-control-dashboard-search" placeholder="Search for an order...">
+            </div>
+            <div class="dashboard-header-logout">
+                <i class="icon-user-outline"></i>
+                <a href="javascript:void(0)" class="dashboard-header-logout-link">Log out</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="dashboard-content">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>OrderID</th>
+                        <th>Date</th>
+                        <th>Phone No.</th>
+                        <th>Address</th>
+                        <th>No. of photos</th>
+                        <th>Total amount</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><a href="javascript:void(0)" class="js-trigger-dashboard-modal">37483</a></td>
+                    <td>26th Oct 2016</td>
+                    <td>0728061959</td>
+                    <td>Hse 12, Iregi Road, Highridge, Parklands</td>
+                    <td>12</td>
+                    <td>293</td>
+                </tr>
+                <tr>
+                    <td><a href="javascript:void(0)" class="js-trigger-dashboard-modal">37483</a></td>
+                    <td>26th Oct 2016</td>
+                    <td>0728061959</td>
+                    <td>Hse 12, Iregi Road, Highridge, Parklands</td>
+                    <td>12</td>
+                    <td>293</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-modal">
+    <div class="dashboard-modal-container">
+        <div class="dashboard-modal-content">
+            <header class="dashboard-modal-header">
+                <a href="javascript:void(0)" class="dashboard-modal-close js-trigger-dashboard-close"><i class="icon-cross"></i></a>
+                <p class="dashboard-modal-id"><b>Download Photographs</b></p>
+            </header>
+            <div class="dashboard-modal-details">
+                <div class="dashboard-modal-footer">
+                    <div class="dashboard-modal-details-group">
+                        <small class="dashboard-modal-helper">Photographs: (Total: 4)</small>
+                        <a href="#" target="_blank" class="dashboard-modal-photographs">30 Rock.jpg</a>
+                        <a href="#" target="_blank" class="dashboard-modal-photographs">Elizabeth Lemon.jpg</a>
+                        <a href="#" target="_blank" class="dashboard-modal-photographs">OITNB.jpg</a>
+                        <a href="#" target="_blank" class="dashboard-modal-photographs">Alex Vause.jpg</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
+<script src="js/main.js"></script>
+</body>
+</html>

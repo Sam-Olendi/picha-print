@@ -188,16 +188,28 @@ var main = function () {
                 if ( $('#upload-delivery').prop('checked') ) {
                     $('.picha-modal-body-payment-amount').html('<b>Total: </b>Kshs. ' + (( inputCount * 90) + 200) );
                 } else {
-                    $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + ( inputCount * 90) );
+                    if ( $('#industrial-area').prop('checked') || $('#mombasa').prop('checked') || $('#yala-towers').prop('checked') || $('#trm').prop('checked') || $('#ralph-bunche').prop('checked') || $('#mukungu-close').prop('checked') ) {
+                        $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + (( inputCount * 90) + 100) );
+                        $('#upload-cost').val( ( inputCount * 90 ) + 100 );
+                    } else {
+                        $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + ( inputCount * 90) );
+                        $('#upload-cost').val( inputCount * 90 );
+                    }
                 }
             } else {
                 if ( $('#upload-delivery').prop('checked') ) {
                     $('.picha-modal-body-payment-amount').html('<b>Total: </b>Kshs. ' + (( inputCount * 99) + 200) );
                 } else {
-                    $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + ( inputCount * 99) );
+                    if ( $('#industrial-area').prop('checked') || $('#mombasa').prop('checked') || $('#yala-towers').prop('checked') || $('#trm').prop('checked') || $('#ralph-bunche').prop('checked') || $('#mukungu-close').prop('checked') ) {
+                        $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + (( inputCount * 99) + 100) );
+                        $('#upload-cost').val( ( inputCount * 99) + 100 );
+                    } else {
+                        $('.picha-modal-body-payment-amount').html( '<b>Total: </b>Kshs. ' + ( inputCount * 99) );
+                        $('#upload-cost').val( inputCount * 99 );
+                    }
                 }
             }
-            $('.upload-form-explainer').text('This is the total amount charged to you in order to print the ' + fileInputField.get(0).files.length + ' photographs you have uploaded.')
+            $('.upload-form-explainer').text('This is the total amount charged to you in order to print the ' + inputCount + ' photographs you have uploaded.')
         }
     });
 

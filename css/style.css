@@ -100,8 +100,7 @@ p.alert.mod-alert-modal {
   ==================*/
 
 .jumbotron.mod-jumbotron-home {
-  background-image: url('../img/pichaprint-background.jpg');
-  background-position: center;
+  background-image: url('../img/pichaprint-background-540.jpg');
   background-size: cover;
   height: 100vh;
   margin-bottom: 0;
@@ -109,14 +108,15 @@ p.alert.mod-alert-modal {
   text-align: center;
 }
 
-@media screen and (min-width: 46em) {
+@media screen and (min-width: 35.5em) {
   .jumbotron.mod-jumbotron-home {
-    background-position: initial;
+    background-image: url('../img/pichaprint-background.jpg');
+    padding-top: 20px;
   }
 }
 
 .home-text {
-  background-color: rgba(235,235,235,.3);
+  background-color: rgba(235,235,235,.1);
   bottom: 20px;
   margin: 0 auto;
   padding: 5px 10px;
@@ -776,7 +776,7 @@ p.picha-modal-body-sizes-text {
 }
 
 .form-radio-group .form-group {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .form-radio-group .form-group:last-child {
@@ -895,4 +895,12 @@ p.picha-modal-body-sizes-text {
 
 .upload-label.mod-upload-label-radio {
   display: inline;
+}
+
+.upload-label-helper {
+  background-color: #4B88A2;
+  color: #ffffff;
+  border-radius: 30px;
+  display: inline-block;
+  padding: 3px 10px;
 }

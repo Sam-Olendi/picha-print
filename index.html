@@ -94,33 +94,53 @@
                                     <small class="upload-wizard-section-subtitle">You can pick them up or have them delivered to you</small>
                                     <div class="form-group">
                                         <input type="radio" class="form-radio mod-form-radio-pickup" name="delivery" value="pickup" id="upload-pickup">
-                                        <label for="upload-pickup" class="upload-label mod-upload-label-radio">Pick up at studio</label>
-                                        <small class="upload-wizard-section-subtitle">Free! No additional costs.</small>
+                                        <label for="upload-pickup" class="upload-label mod-upload-label-radio">Pick up</label>
+                                        <small class="upload-wizard-section-subtitle">Cost depends on pick-up point</small>
                                     </div>
                                     <div class="form-radio-group">
                                         <div class="form-group">
-                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" value="Asthmatic Kitty" id="asthmatic-kitty">
-                                            <label for="asthmatic-kitty" class="upload-label mod-upload-label-radio">Asthmatic Kitty</label>
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="0" value="Sona Shoppe, Westgate" id="westgate">
+                                            <label for="westgate" class="upload-label mod-upload-label-radio">Sona Shoppe, Westgate Shopping Mall - Ground floor, Mwanzi Road, Westlands <small class="upload-label-helper">Free</small></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" value="Ice Cream Sandwich" id="icecream-sandwich">
-                                            <label for="icecream-sandwich" class="upload-label mod-upload-label-radio">Ice Cream Sandwich</label>
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="0" value="Sona Shoppe, Galleria" id="galleria">
+                                            <label for="galleria" class="upload-label mod-upload-label-radio">Sona Shoppe, Galleria Shopping Mall - Ground floor, Langata Road <small class="upload-label-helper">Free</small></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" value="Carrie and Lowell" id="carrie-and-lowell">
-                                            <label for="carrie-and-lowell" class="upload-label mod-upload-label-radio">Carrie and Lowell</label>
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="0" value="Sona Shoppe, Karen Crossroads" id="karen-crossroads">
+                                            <label for="karen-crossroads" class="upload-label mod-upload-label-radio">Sona Shoppe, Karen Crossroads Shopping Mall - Ground floor, Langata Road <small class="upload-label-helper">Free</small></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" value="Cheap Seats" id="cheap-seats">
-                                            <label for="cheap-seats" class="upload-label mod-upload-label-radio">Cheap Seats</label>
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="100" value="Aramex office - Industrial Area" id="industrial-area">
+                                            <label for="industrial-area" class="upload-label mod-upload-label-radio">Aramex office, Dunga close off Dunga road. Industrial area, Aramex building, 00100 <small class="upload-label-helper">Kshs. 100</small></label>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" value="Small Bills" id="small-bills">
-                                            <label for="small-bills" class="upload-label mod-upload-label-radio">Small Bills</label>
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="100" value="Aramex office - Mombasa" id="mombasa">
+                                            <label for="mombasa" class="upload-label mod-upload-label-radio">Aramex office, Modhar Mohammed road off Moi Avenue,Sheetal plaza, ground floor, Mombasa <small class="upload-label-helper">Kshs. 100</small></label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="100" value="Aramex office - Yala Towers" id="yala-towers">
+                                            <label for="yala-towers" class="upload-label mod-upload-label-radio">Aramex office, Yala Towers, 2nd floor, Junction of Koinange & Biashara Street <small class="upload-label-helper">Kshs. 100</small></label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="100" value="Aramex office - TRM" id="trm">
+                                            <label for="trm" class="upload-label mod-upload-label-radio">Aramex office, Thika road mall, 2nd floor <small class="upload-label-helper">Kshs. 100</small></label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="100" value="Aramex office - Ralph Bunche" id="ralph-bunche">
+                                            <label for="ralph-bunche" class="upload-label mod-upload-label-radio">Aramex outlet, Ralph Bunche road, near GA <small class="upload-label-helper">Kshs. 100</small></label>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="radio" class="form-radio mod-form-radio-studio" name="studio" data-cost="100" value="Aramex office - Westlands, Mukungu Close" id="mukungu-close">
+                                            <label for="mukungu-close" class="upload-label mod-upload-label-radio">Aramex outlet, Westlands, Mukungu Close, Off Parklands Road near Corner Plaza <small class="upload-label-helper">Kshs. 100</small></label>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -139,6 +159,7 @@
                                 <section class="upload-wizard-section mod-upload-wizard-section-upload" data-step="3">
                                     <h2 class="upload-wizard-section-title">Select photographs</h2>
                                     <small class="upload-wizard-section-subtitle">You must upload a minimum of 3 photographs</small>
+                                    <small class="upload-wizard-section-subtitle">If you're using an Android phone, please select your photos from 'Documents' or 'Gallery'.</small>
 
                                     <div class="upload-file-group">
                                         <div class="upload-file-input" id="upload-file-input-0" data-group="0">
@@ -154,7 +175,6 @@
                                         <small class="upload-form-explainer">Please note that the printed pictures will reflect the quality of the original picture. Make sure you choose pictures which don't seem blurry on your screen!</small>
                                         <small class="upload-form-explainer">The minimum file size is 30KB.</small>
                                     </div>
-
                                 </section>
 
                             </div>
@@ -193,6 +213,7 @@
                         <div class="picha-modal-body mod-picha-modal-body-payment">
                             <img src="img/lipa-na-mpesa.png" alt="Lipa na m-PESA" class="picha-modal-payment-image">
                             <p class="picha-modal-body-payment-amount"><b>Bill: </b></p>
+                            <input type="hidden" id="upload-cost" value="0">
                             <small class="upload-form-explainer">This is the total amount charged to you.</small>
                             <p class="picha-modal-body-payment-text">Please send your payment to the following number:</p>
                             <p class="picha-modal-body-payment-number">0700888333</p>
@@ -213,7 +234,7 @@
                             <small class="picha-modal-subtitle">Thank you for using pichaprint.com</small>
                         </header>
                         <div class="picha-modal-body mod-picha-modal-body-congrats">
-                            <p class="picha-modal-body-congrats-text">Thank you for your order, as soon as we receive your payment, we will print your pictures. You will receive them within 4 business days.</p>
+                            <p class="picha-modal-body-congrats-text">Thank you for your order, as soon as we receive your payment, we will print your pictures. You will receive them within 2 business days.</p>
                         </div>
                         <div class="picha-modal-footer mod-picha-modal-footer-congrats">
                             <a href="javascript:void(0)" class="btn btn-success mod-btn-picha-modal js-trigger-picha-modal-congrats-close">Done</a>
